@@ -1,9 +1,11 @@
 import { useOnboardingStore } from "@/store/onboardingStore";
+import { useRouter } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function OnboardingScreenFour() {
     const { onboardingStep, totalSteps, setOnboardingStep } = useOnboardingStore();
+    const router = useRouter()
 
     return (
         <SafeAreaView className="flex-1 items-center justify-center bg-primary relative">
@@ -37,7 +39,7 @@ export default function OnboardingScreenFour() {
                         )
                     }
 
-                    <TouchableOpacity onPress={() => setOnboardingStep(1)} className="bg-primary w-full py-3 rounded-lg mt-10">
+                    <TouchableOpacity onPress={() => router.replace('/auth/role')} className="bg-primary w-full py-3 rounded-lg mt-10">
                         <Text className="text-white text-center font-semibold">Get Started</Text>
                     </TouchableOpacity>
                 </View>
